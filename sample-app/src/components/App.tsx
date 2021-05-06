@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import "./App.css";
+import "../App.css";
 import UsernameForm from "./UsernameForm";
 import Welcome from "./Welcome";
 
