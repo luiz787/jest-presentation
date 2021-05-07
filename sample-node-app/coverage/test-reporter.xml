@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+    <file path="/home/luiz/Projects/dti/GuildaFrontend/jest-presentation/sample-node-app/src/github/githubRepository.test.js">
+        <testCase name="GithubRepository tests Checks if axios.get is called with the expected username" duration="2"/>
+        <testCase name="GithubRepository tests Checks if axios.get is only called once" duration="0"/>
+    </file>
+    <file path="/home/luiz/Projects/dti/GuildaFrontend/jest-presentation/sample-node-app/src/calculator/calculator.test.js">
+        <testCase name="Calculator tests Division tests Division by 0 throws error" duration="0"/>
+        <testCase name="Calculator tests function add adds two numbers correctly" duration="1"/>
+        <testCase name="Calculator tests function subtract subtract second operand from first" duration="0"/>
+    </file>
+</testExecutions>
