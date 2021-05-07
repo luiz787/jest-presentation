@@ -21,16 +21,19 @@ export default function LoginForm() {
   const [username, setUsername] = useState("");
   const history = useHistory();
 
-  const handleSubmit = () => {
-    history.push(`/welcome/${username}`);
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (username !== "") {
+      history.push(`/welcome/${username}`);
+    }
   };
 
   return (
-    <Form>
+    <Form onSubmit={(e) => handleSubmit(e)}>
       <label htmlFor="githubUsername">Your username on GitHub</label>
       <input id="githubUsername" type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
 
-      <Button type="submit" onClick={handleSubmit}>Ok</Button>
+      <Button type="submit">Ok</Button>
     </Form>
   );
 }
