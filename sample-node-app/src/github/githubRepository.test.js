@@ -1,26 +1,11 @@
 const { default: axios } = require("axios");
 const { getAmountOfRepositories } = require("./githubRepository.js");
 
+const extensions = require("../testUtils.js");
+
 jest.mock("axios");
 
-expect.extend({
-    toHaveBeenCalledOnce(received) {
-        const calls = received.mock.calls.length
-        const pass = calls === 1;
-
-        if (pass) {
-            return {
-                message: () => `expected amount of calls to be different than one`,
-                pass: true,
-            };
-        } else {
-            return {
-                message: () => `expected only one call, got ${calls} calls instead`,
-                pass: false,
-            };
-        }
-    }
-});
+expect.extend(extensions);
 
 describe("GithubRepository tests", () => {
   beforeEach(() => {
@@ -48,11 +33,11 @@ describe("GithubRepository tests", () => {
 
   test("Checks if axios.get is only called once", (done) => {
     getAmountOfRepositories("luiz787").then((data) => {
-        // DO
-        expect(axios.get).toHaveBeenCalledOnce();
+      // DO
+      expect(axios.get).toHaveBeenCalledOnce();
 
-        // DONT
-        // expect(axios.get.mock.calls.length == 2).toBe(true);
+      // DONT
+      // expect(axios.get.mock.calls.length == 2).toBe(true);
 
       done();
     });
