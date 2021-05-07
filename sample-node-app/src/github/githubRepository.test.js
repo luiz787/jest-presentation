@@ -1,11 +1,7 @@
 const { default: axios } = require("axios");
 const { getAmountOfRepositories } = require("./githubRepository.js");
 
-const extensions = require("../testUtils.js");
-
 jest.mock("axios");
-
-expect.extend(extensions);
 
 describe("GithubRepository tests", () => {
   beforeEach(() => {
