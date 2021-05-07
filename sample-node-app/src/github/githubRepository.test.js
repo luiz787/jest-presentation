@@ -4,18 +4,32 @@ const { getAmountOfRepositories } = require("./githubRepository.js");
 jest.mock("axios");
 
 describe("GithubRepository tests", () => {
-  test("Checks if axios.get is called with the expected username", (done) => {
+  beforeEach(() => {
     axios.get.mockResolvedValueOnce({
       status: 200,
       data: {
         length: 1,
       },
     });
+  });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  test("Checks if axios.get is called with the expected username", (done) => {
     getAmountOfRepositories("luiz787").then((data) => {
       expect(axios.get).toHaveBeenCalledWith(
         "https://api.github.com/users/luiz787/repos"
       );
+
+      done();
+    });
+  });
+
+  test("Checks if axios.get is only called once", (done) => {
+    getAmountOfRepositories("luiz787").then((data) => {
+      expect(axios.get).toHaveBeenCalledTimes(1);
 
       done();
     });
