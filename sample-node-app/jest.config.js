@@ -1,3 +1,6 @@
 module.exports = {
-    setupFilesAfterEnv: ['./testConfig.js'],
+    projects: [
+        '<rootDir>/src/calculator/jest.config.js',
+        '<rootDir>/src/github/jest.config.js'
+    ]
 };
