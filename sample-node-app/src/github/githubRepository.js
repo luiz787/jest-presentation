@@ -1,6 +1,10 @@
-import axios from "axios";
+const axios = require("axios");
 
-export async function getAmountOfRepositories(username) {
-  const response = await axios.get(`https://api.github.com/users/${username}/repos`);
-  return response.data.length;
-}
+module.exports = {
+  getAmountOfRepositories: async function getAmountOfRepositories(username) {
+    const response = await axios.get(
+      `https://api.github.com/users/${username}/repos`
+    );
+    return response.data.length;
+  },
+};

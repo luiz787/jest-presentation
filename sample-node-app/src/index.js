@@ -1,5 +1,5 @@
-import { add } from './calculator/calculator.js';
-import { getAmountOfRepositories } from './github/githubRepository.js';
+const { add } = require('./calculator/calculator.js');
+const { getAmountOfRepositories } = require('./github/githubRepository.js');
 
 // console.log('Hello, World!');
 // console.log(add(1,2));
@@ -13,4 +13,6 @@ async function fetchAmountOfRepositories(username) {
     }
 }
 
-await fetchAmountOfRepositories('luiz787');
+(async () => {
+    await fetchAmountOfRepositories('luiz787');
+})();
